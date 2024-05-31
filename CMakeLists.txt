@@ -39,6 +39,28 @@ else()
     message(FATAL_ERROR "PLUGIN_SDK_DIR not defined in your enviroment")
 endif()
 
+# IMGUI Library
+add_library(imgui STATIC "libs/imgui/imgui.cpp"
+                         "libs/imgui/imgui_widgets.cpp"
+                         "libs/imgui/imgui_draw.cpp"
+                         "libs/imgui/imgui_demo.cpp"
+                         "libs/imgui/backends/imgui_impl_dx9.cpp")
+
+target_include_directories(imgui PUBLIC "libs/imgui")
+target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE imgui)
+
+#CSYS
+add_library(csys INTERFACE)
+target_include_directories(csys INTERFACE "libs/imgui-console/include/csys")
+target_compile_features(csys INTERFACE cxx_std_17)
+
+# IMGUI Console
+add_library(imgui_console STATIC "libs/imgui-console/src/imgui_console.cpp" "libs/imgui-console/include/imgui_console/imgui_console.h")
+target_include_directories(imgui_console PUBLIC "libs/imgui" "libs/imgui-console/include/imgui_console" "libs/imgui-console/include")
+target_compile_features(imgui_console PUBLIC cxx_std_17)
+# target_link_libraries(imgui_console PUBLIC csys)
+target_link_libraries(${CMAKE_PROJECT_NAME} PUBLIC imgui_console)
+
 # Important preprocessor definitions
 target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
     _CRT_SECURE_NO_WARNINGS
