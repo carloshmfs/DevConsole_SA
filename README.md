@@ -7,7 +7,7 @@
 
 Clone the repository:
 ```bash
-git clone https://github.com/carloshmfs/DevConsole_SA.git
+git clone --recurse-submodules https://github.com/carloshmfs/DevConsole_SA.git
 ```
 
 And generate the build script files:
