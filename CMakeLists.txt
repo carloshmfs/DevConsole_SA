@@ -44,6 +44,8 @@ add_library(imgui STATIC "libs/imgui/imgui.cpp"
                          "libs/imgui/imgui_widgets.cpp"
                          "libs/imgui/imgui_draw.cpp"
                          "libs/imgui/imgui_demo.cpp"
+
+                         "libs/imgui/backends/imgui_impl_win32.cpp"
                          "libs/imgui/backends/imgui_impl_dx9.cpp")
 
 target_include_directories(imgui PUBLIC "libs/imgui")
