@@ -1,6 +1,6 @@
-[submodule "libs/imgui-console"]
-	path = libs/imgui-console
-	url = https://github.com/rmxbalanque/imgui-console.git
 [submodule "libs/imgui"]
 	path = libs/imgui
 	url = https://github.com/ocornut/imgui.git
+[submodule "libs/csys"]
+	path = libs/csys
+	url = https://github.com/rmxbalanque/csys.git
